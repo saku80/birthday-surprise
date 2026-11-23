@@ -3,107 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Birthday Surprise 💗</title>
+
+<title>Happy Birthday Rahul ❤️</title>
+
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:#fff;overflow-x:hidden;
-    background:radial-gradient(circle at 20% 20%,#74365f 0,#3b183d 38%,#160f2b 100%);
-    display:flex;align-items:center;justify-content:center;padding:28px 16px}
-  .hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-  .heart{position:absolute;bottom:-40px;color:#ffb7d5;opacity:.55;animation:float 12s linear infinite}
-  @keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
-  .card{position:relative;width:min(100%,620px);padding:clamp(26px,6vw,48px);text-align:center;
-    border:1px solid rgba(255,220,240,.35);border-radius:28px;
-    background:rgba(255,255,255,.10);backdrop-filter:blur(12px);
-    box-shadow:0 24px 80px rgba(0,0,0,.35)}
-  .tiny{letter-spacing:4px;text-transform:uppercase;font:12px Arial,sans-serif;color:#ffd3e7}
-  h1{font-size:clamp(34px,8vw,54px);line-height:1.08;margin:16px 0;color:#fff0f7}
-  p{font-size:18px;line-height:1.65;color:#f8e6f0}
-  .buttons{display:grid;gap:12px;margin:28px auto 8px;max-width:390px}
-  button{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:14px 18px;
-    background:rgba(255,255,255,.13);color:white;font-size:16px;cursor:pointer;transition:.2s}
-  button:hover{background:#f8b8d6;color:#421c3c;transform:translateY(-2px)}
-  .primary{background:#f4a9cc;color:#421c3c;font-weight:bold}
-  .hidden{display:none}
-  .message{margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25)}
-  .signature{font-style:italic;color:#ffd3e7;margin-top:20px}
-  .sparkle{font-size:30px;margin:10px}
-  @media(prefers-reduced-motion:reduce){.heart{animation:none}button{transition:none}}
+*{box-sizing:border-box}
+
+body{
+margin:0;
+min-height:100vh;
+padding:25px 12px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#260c36,#852d68,#e28bb4);
+font-family:Georgia,serif;
+color:white;
+text-align:center;
+}
+
+.card{
+width:100%;
+max-width:650px;
+padding:35px 22px;
+border-radius:25px;
+background:rgba(255,255,255,.13);
+backdrop-filter:blur(12px);
+border:1px solid #ffffff66;
+box-shadow:0 10px 50px #0005;
+}
+
+h1{font-size:38px;color:#ffe0ef}
+h2{color:#ffd3e8}
+
+p{
+font-size:18px;
+line-height:1.8;
+}
+
+button{
+display:block;
+width:100%;
+max-width:400px;
+margin:14px auto;
+padding:15px;
+border:none;
+border-radius:30px;
+background:#ffc1dd;
+color:#4b1740;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{background:white}
+
+.hidden{display:none}
+
+.photo{
+width:100%;
+max-width:420px;
+border:5px solid white;
+border-radius:18px;
+margin:20px auto;
+}
+
+.music{
+margin:20px auto;
+max-width:400px;
+}
+
+.music iframe{
+width:100%;
+height:115px;
+border:0;
+border-radius:12px;
+}
+
+.heart{
+position:fixed;
+bottom:-30px;
+animation:float 10s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
 </style>
 </head>
+
 <body>
-<div class="hearts" id="hearts"></div>
-<main class="card">
-  <div class="tiny">A tiny surprise made with love</div>
-  <div class="sparkle">🎀 💗 🎂</div>
-  <h1>Hey, Bestie!</h1>
-  <p>I have something special for you… but you have to unlock it. Ready?</p>
 
-  <section class="buttons" id="choices">
-    <button class="primary" data-step="1">Okay, I'm ready! ✨</button>
-    <button data-step="2">I love surprises 👀</button>
-    <button data-step="3">Just show me already! 😂</button>
-  </section>
+<div class="card">
 
-  <section id="stage" class="hidden" aria-live="polite">
-    <div class="sparkle" id="stageEmoji">💌</div>
-    <h1 id="stageTitle">One little question…</h1>
-    <p id="stageText">Are you ready for a day full of smiles?</p>
-    <button class="primary" id="next">YES, LET'S GO! 💖</button>
-  </section>
+<section id="welcome">
 
-  <section id="birthday" class="hidden message" aria-live="polite">
-    <div class="sparkle">🎉 🎂 🥳</div>
-    <div class="tiny">Today is all about you</div>
-    <h1>Happiest Birthday, Bestie! 💗</h1>
-    <p>
-      May your life always be filled with happiness, love, laughter and beautiful surprises.
-      Thank you for being the kind of person who makes ordinary moments feel special.
-      I hope every dream you're quietly wishing for finds its way to you.
-    </p>
-    <p>
-      Keep smiling, keep shining, and never forget how special you are.
-      You deserve all the love and all the good things in this world. 💕
-    </p>
-    <p><strong>Have the most amazing birthday ever!</strong></p>
-    <div class="signature">Lots of love, from your favourite person ❤️</div>
-    <div class="sparkle">💞 🌷 💞</div>
-  </section>
-</main>
+<h1>Hey Rahul! ❤️</h1>
+
+<p>
+A little surprise made with lots of love.
+Choose where you want to begin...
+</p>
+
+<div class="music">
+<p>🎵 A little song for you</p>
+
+<iframe
+src="https://www.youtube.com/embed/e1mOmdykmwI"
+title="I Think They Call This Love"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+
+<button onclick="show('look')">
+Our First Look 👀
+</button>
+
+<button onclick="show('touch')">
+That Little Touch 🤍
+</button>
+
+<button onclick="show('young')">
+55? No Way! 😂
+</button>
+
+</section>
+
+
+<section id="look" class="hidden">
+
+<h1>Our First Look 👀</h1>
+
+<p>
+1st time tuzya dolyat dole ghalun baghitla na,
+something felt different.
+
+Ek veglich feeling aali...
+tyat khup aapulki hoti.
+
+It felt warm, genuine and so special.
+
+Some feelings are difficult to explain,
+but impossible to forget. ❤️
+</p>
+
+<button onclick="show('touch')">
+Next Little Memory 🤍
+</button>
+
+</section>
+
+
+<section id="touch" class="hidden">
+
+<h1>That Little Touch 🤍</h1>
+
+<p>
+Nantar tuza haat hatat ghetla,
+and that little touch...
+
+Tyat ek veglach samadhan hota.
+
+Khup comfortable vatla,
+like everything was just easy and peaceful
+for that moment.
+
+Some feelings don't need big words. 🫶
+</p>
+
+<button onclick="show('young')">
+One Thing About You 😂
+</button>
+
+</section>
+
+
+<section id="young" class="hidden">
+
+<h1>55? Seriously? 😂</h1>
+
+<h2>YOU ARE JUST BABY! 🧸</h2>
+
+<p>
+YES, it's your 55th birthday!
+
+But pachpan age nahi,
+tera bachpan hai! 😂
+
+Tuze vichar, tuza bolna,
+tuza vagna ani tuza hasna...
+
+Hey sagla new generation sarkha aahe.
+
+Kharach, tu OLD IS GOLD type ahes,
+with a full-on young heart! ❤️
+</p>
+
+<button onclick="show('birthday')">
+Your Special Birthday Wish 🎂
+</button>
+
+</section>
+
+
+<section id="birthday" class="hidden">
+
+<h1>Happy Birthday, My Dear Bestie! 💗</h1>
+
+<img
+src="our-memory.jpeg"
+class="photo"
+alt="Our special memory">
+
+<p>
+One of our little memories,
+forever special. ❤️
+</p>
+
+<p>
+Je tula hav aahe na,
+te sagla universe tula deu de.
+
+Tujhe je vision aahe,
+every dream and every goal...
+
+May it all come true.
+
+I wish you endless happiness,
+good health, peace, success
+and countless reasons to smile.
+</p>
+
+<p>
+Stay exactly the way you are.
+
+Unique, young at heart,
+crazy and genuinely special.
+</p>
+
+<h2>YOU ARE JUST BABY! 🧸</h2>
+
+<p>
+Keep smiling, keep laughing
+and keep spreading your one-of-a-kind energy.
+
+Here's to more memories,
+more madness and many more beautiful years!
+</p>
+
+<h1>Happy Birthday Rahul! ❤️</h1>
+
+<p>
+Mazya unique pattern la,
+Happiest Birthday! 🎂
+</p>
+
+<h2>Forever your crazy best friend. 💞</h2>
+
+</section>
+
+</div>
+
+
 <script>
-const hearts = document.getElementById('hearts');
-for(let i=0;i<22;i++){
-  const el=document.createElement('span'); el.className='heart'; el.textContent=['♥','♡','💗'][i%3];
-  el.style.left=(Math.random()*100)+'%'; el.style.fontSize=(14+Math.random()*22)+'px';
-  el.style.animationDelay=(Math.random()*12)+'s'; el.style.animationDuration=(9+Math.random()*9)+'s';
-  hearts.appendChild(el);
+
+function show(id){
+
+document.querySelectorAll('.card section')
+.forEach(s=>s.classList.add('hidden'));
+
+document.getElementById(id).classList.remove('hidden');
+
+window.scrollTo(0,0);
+
 }
-const stage=document.getElementById('stage');
-const birthday=document.getElementById('birthday');
-document.querySelectorAll('[data-step]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.getElementById('choices').classList.add('hidden');
-    stage.classList.remove('hidden');
-    const step=btn.dataset.step;
-    if(step==='1'){
-      document.getElementById('stageEmoji').textContent='✨';
-      document.getElementById('stageTitle').textContent='Awww, that’s the spirit!';
-      document.getElementById('stageText').textContent='You deserve a little extra happiness today. One last click…';
-    } else if(step==='2'){
-      document.getElementById('stageEmoji').textContent='👀💗';
-      document.getElementById('stageTitle').textContent='A surprise lover!';
-      document.getElementById('stageText').textContent='I made this little page just to make you smile. Ready for your wish?';
-    } else {
-      document.getElementById('stageEmoji').textContent='😂🎁';
-      document.getElementById('stageTitle').textContent='Okay okay, impatient one!';
-      document.getElementById('stageText').textContent='Your special birthday message is just one click away…';
-    }
-  });
-});
-document.getElementById('next').addEventListener('click',()=>{
-  stage.classList.add('hidden'); birthday.classList.remove('hidden');
-  document.querySelector('.card').scrollIntoView({behavior:'smooth',block:'center'});
-});
+
+for(let i=0;i<25;i++){
+
+let h=document.createElement('div');
+
+h.className='heart';
+
+h.innerHTML='💗';
+
+h.style.left=Math.random()*100+'%';
+
+h.style.animationDelay=Math.random()*10+'s';
+
+document.body.appendChild(h);
+
+}
+
 </script>
+
 </body>
 </html>
