@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Birthday Surprise 💗</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:#fff;overflow-x:hidden;
+    background:radial-gradient(circle at 20% 20%,#74365f 0,#3b183d 38%,#160f2b 100%);
+    display:flex;align-items:center;justify-content:center;padding:28px 16px}
+  .hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+  .heart{position:absolute;bottom:-40px;color:#ffb7d5;opacity:.55;animation:float 12s linear infinite}
+  @keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+  .card{position:relative;width:min(100%,620px);padding:clamp(26px,6vw,48px);text-align:center;
+    border:1px solid rgba(255,220,240,.35);border-radius:28px;
+    background:rgba(255,255,255,.10);backdrop-filter:blur(12px);
+    box-shadow:0 24px 80px rgba(0,0,0,.35)}
+  .tiny{letter-spacing:4px;text-transform:uppercase;font:12px Arial,sans-serif;color:#ffd3e7}
+  h1{font-size:clamp(34px,8vw,54px);line-height:1.08;margin:16px 0;color:#fff0f7}
+  p{font-size:18px;line-height:1.65;color:#f8e6f0}
+  .buttons{display:grid;gap:12px;margin:28px auto 8px;max-width:390px}
+  button{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:14px 18px;
+    background:rgba(255,255,255,.13);color:white;font-size:16px;cursor:pointer;transition:.2s}
+  button:hover{background:#f8b8d6;color:#421c3c;transform:translateY(-2px)}
+  .primary{background:#f4a9cc;color:#421c3c;font-weight:bold}
+  .hidden{display:none}
+  .message{margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25)}
+  .signature{font-style:italic;color:#ffd3e7;margin-top:20px}
+  .sparkle{font-size:30px;margin:10px}
+  @media(prefers-reduced-motion:reduce){.heart{animation:none}button{transition:none}}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<main class="card">
+  <div class="tiny">A tiny surprise made with love</div>
+  <div class="sparkle">🎀 💗 🎂</div>
+  <h1>Hey, Bestie!</h1>
+  <p>I have something special for you… but you have to unlock it. Ready?</p>
+
+  <section class="buttons" id="choices">
+    <button class="primary" data-step="1">Okay, I'm ready! ✨</button>
+    <button data-step="2">I love surprises 👀</button>
+    <button data-step="3">Just show me already! 😂</button>
+  </section>
+
+  <section id="stage" class="hidden" aria-live="polite">
+    <div class="sparkle" id="stageEmoji">💌</div>
+    <h1 id="stageTitle">One little question…</h1>
+    <p id="stageText">Are you ready for a day full of smiles?</p>
+    <button class="primary" id="next">YES, LET'S GO! 💖</button>
+  </section>
+
+  <section id="birthday" class="hidden message" aria-live="polite">
+    <div class="sparkle">🎉 🎂 🥳</div>
+    <div class="tiny">Today is all about you</div>
+    <h1>Happiest Birthday, Bestie! 💗</h1>
+    <p>
+      May your life always be filled with happiness, love, laughter and beautiful surprises.
+      Thank you for being the kind of person who makes ordinary moments feel special.
+      I hope every dream you're quietly wishing for finds its way to you.
+    </p>
+    <p>
+      Keep smiling, keep shining, and never forget how special you are.
+      You deserve all the love and all the good things in this world. 💕
+    </p>
+    <p><strong>Have the most amazing birthday ever!</strong></p>
+    <div class="signature">Lots of love, from your favourite person ❤️</div>
+    <div class="sparkle">💞 🌷 💞</div>
+  </section>
+</main>
+<script>
+const hearts = document.getElementById('hearts');
+for(let i=0;i<22;i++){
+  const el=document.createElement('span'); el.className='heart'; el.textContent=['♥','♡','💗'][i%3];
+  el.style.left=(Math.random()*100)+'%'; el.style.fontSize=(14+Math.random()*22)+'px';
+  el.style.animationDelay=(Math.random()*12)+'s'; el.style.animationDuration=(9+Math.random()*9)+'s';
+  hearts.appendChild(el);
+}
+const stage=document.getElementById('stage');
+const birthday=document.getElementById('birthday');
+document.querySelectorAll('[data-step]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.getElementById('choices').classList.add('hidden');
+    stage.classList.remove('hidden');
+    const step=btn.dataset.step;
+    if(step==='1'){
+      document.getElementById('stageEmoji').textContent='✨';
+      document.getElementById('stageTitle').textContent='Awww, that’s the spirit!';
+      document.getElementById('stageText').textContent='You deserve a little extra happiness today. One last click…';
+    } else if(step==='2'){
+      document.getElementById('stageEmoji').textContent='👀💗';
+      document.getElementById('stageTitle').textContent='A surprise lover!';
+      document.getElementById('stageText').textContent='I made this little page just to make you smile. Ready for your wish?';
+    } else {
+      document.getElementById('stageEmoji').textContent='😂🎁';
+      document.getElementById('stageTitle').textContent='Okay okay, impatient one!';
+      document.getElementById('stageText').textContent='Your special birthday message is just one click away…';
+    }
+  });
+});
+document.getElementById('next').addEventListener('click',()=>{
+  stage.classList.add('hidden'); birthday.classList.remove('hidden');
+  document.querySelector('.card').scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
+</body>
+</html>
